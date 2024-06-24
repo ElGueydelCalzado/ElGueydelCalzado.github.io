@@ -1,0 +1,13 @@
+{% extends "bodega/layout.html" %}
+
+{% block body %}    
+<h1>Agregar un Nuevo SKU</h1>
+
+<form action="{% url 'bodega:addSKU' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit">
+</form>
+
+
+{% endblock %}

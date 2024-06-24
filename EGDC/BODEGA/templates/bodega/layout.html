@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>El Guey del Calzado</title>
+    <link href="{% static 'bodega/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="navigation">
+        <a href="{% url 'bodega:index' %}">Home</a>
+    </div>
+    <div class="search-bar">
+        <form action="https://google.com/">
+            <input type="text" name="q" placeholder="SKU o EAN del producto...">
+            <input type="submit" value="Buscar">
+        </form>
+        <form action="{% url 'bodega:addSKU' %}" method="get">
+            <input type="submit" value="Agregar Nuevo SKU">
+        </form>
+    </div>
+    
+    
+    {% block body %}
+    {% endblock %}
+
+</body>

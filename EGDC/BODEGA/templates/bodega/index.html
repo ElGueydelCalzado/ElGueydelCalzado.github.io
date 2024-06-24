@@ -1,63 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>El Guey del Calzado</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .search-bar {
-            margin-top: 100px;
-        }
-        .search-bar input[type="text"] {
-            width: 300px;
-            padding: 10px;
-            border-radius: 24px;
-            border: 1px solid #dfe1e5;
-            font-size: 16px;
-        }
-        .search-bar input[type="submit"], .search-bar input[type="button"] {
-            margin-top: 10px;
-            padding: 10px 20px;
-            border-radius: 24px;
-            border: 1px solid #dfe1e5;
-            background-color: #f8f9fa;
-            font-size: 14px;
-            cursor: pointer;
-        }
-        .navigation {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
-        .navigation a {
-            margin-left: 10px;
-            text-decoration: none;
-            color: #1a0dab;
-        }
-    </style>
-</head>
-<body>
-    <div class="navigation">
-        <a href="update.html">Image Search</a>
-        <a href="advanced.html">Busqueda Avanzada</a>
-    </div>
-    <div class="search-bar">
-        <form action="https://google.com/">
-            <input type="text" name="q" placeholder="SKU o EAN del producto...">
-            <input type="submit" value="Buscar">
-        </form>
-        <form action="https://api.elgueydelcalzado.com/nuevo" method="get">
-            <input type="submit" value="Agregar Nuevo">
-        </form>
-    </div>
-    
-    
-    <h1>SKU: {{ sku }}</h1>
+{% extends "bodega/layout.html" %}
 
+{% block body %}       
+<h1>Inventario EGDC</h1>
+    <ul>
+        {% for sku in skus %}
+            <li>{{ sku }}</li>
+        {% empty %}
+            <li>No Items</li>
+        {% endfor %}
+    </ul>
     
-</body>
-</html>
+
+{% endblock %}
+
 
